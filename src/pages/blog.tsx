@@ -1,13 +1,13 @@
 import Head from "next/head"
- 
 import { getStoryblokApi, StoryblokComponent } from "@storyblok/react"
  
   type Props = {
     story: any
   }
 
-export default function Home({story} : Props) {
+export default function Blog({story} : Props) {
 
+  console.log(story)
 
   return (
     <div>
@@ -18,7 +18,7 @@ export default function Home({story} : Props) {
  
       <header>
         <h1>
-          { story ? story.name : 'My Site' }
+          { story ? story.name : 'Blog page' }
         </h1>
       </header>
  
@@ -31,10 +31,8 @@ export default function Home({story} : Props) {
  
 export async function getStaticProps() {
   // home is the default slug for the homepage in Storyblok
-  let slug = "home";
- 
-  // load the draft version
-
+  let slug = "blog";
+    
   type sbParamsType = {
     version: "draft" | "published"
   }
